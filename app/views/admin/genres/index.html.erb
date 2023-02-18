@@ -1,0 +1,11 @@
+<h3>ジャンル一覧・追加</h3>
+
+<%= form_with model: [:admin, @genre] do |f| %>
+  <h4>ジャンル</h4>
+  <div>
+    <%= f.text_field :name, placeholder: "ジャンル名" %>
+  </div>
+  <div>
+    <%= f.submit '新規登録' >
+  </div>
+<% end %>
