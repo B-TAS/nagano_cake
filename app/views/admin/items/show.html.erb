@@ -1,6 +1,6 @@
 <h2>商品詳細</h2>
 <div>
-  <%= @item.profile_image %>
+  <%= image_tag @item.image, size: "200x200" %>
 </div>
 <div>
   <table>
@@ -19,11 +19,9 @@
       <td><%= @item.name %></td>
       <td><%= @item.introduction %></td>
       <td><%= @item.genre_id %></td>
-      <td><%= @item.price%></td>
-      <td>すてーたす</td>
+      <td><%= @item.price %></td>
+      <td><%= @item.is_active %></td>
     </tr>
   </tbody>
 </div>
-<div>
-  <%= "編集する", class: "btn btn-success" %>
-</div>
+  <%= link_to "編集する", edit_admin_item_path(@item) class: "btn btn-success" %>
