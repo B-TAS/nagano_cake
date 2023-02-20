@@ -1,5 +1,5 @@
 <h2>商品一覧</h2>
-<btn>+</btn>
+<btn><%= link_to "+", new_admin_item_path %></btn>
 <table>
   <thead>
     <tr>
@@ -17,7 +17,7 @@
       <td><%= link_to item.name, item_path(item.id) %></td>
       <td><%= item.price %></td>
       <td><%= item.genre_id %></td>
-      <td>はんばいちゅう</td>
+      <td><%= item.is_active%></td>
     </tr>
     <% end %>
   </tbody>

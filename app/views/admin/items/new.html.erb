@@ -29,16 +29,11 @@
       <td class="form-group">
         <%= f.text_field :price %>円
       </td>
-
-
       <td class="form-group">
         <%= f.radio_button :is_active, :in_store_now %>
         <%= f.label :is_active, "販売中", {value: :in_store_now, style: "display: inline-block;"} %>
         <%= f.radio_button :is_active, :sold_out %>
         <%= f.label :is_active, "売り切れ", {value: :sold_out, style: "display: inline-block;"} %>
-
-
-
       </td>
       <td class="form-group">
         <%= f.submit "新規登録", class: "btn btn-success" %>
