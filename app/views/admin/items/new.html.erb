@@ -24,7 +24,7 @@
         <%= f.text_area :introduction %>
       </td>
       <td class="form-group">
-        ジャンル
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--"} %>
       </td>
       <td class="form-group">
         <%= f.text_field :price %>円
