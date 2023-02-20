@@ -23,4 +23,9 @@ Rails.application.routes.draw do
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
+  
+  scope module: :public do
+    delete "cart_items/destroy_all" => 'cart_items#destroy_all', as: "destroy_all"
+    resources :cart_items, only: [:index, :destroy, :update, :create]
+  end
 end
