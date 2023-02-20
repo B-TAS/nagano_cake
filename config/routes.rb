@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :customers
     resources :orders
+    #destroyは後で削除
+    resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 end
