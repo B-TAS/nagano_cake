@@ -1,4 +1,4 @@
-<h2>商品新規登録</h2>
+<h2>商品編集</h2>
 <table>
   <thead>
     <tr>
@@ -13,7 +13,7 @@
 </table>
 <tbody>
   <tr>
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with model: @item, url:admin_item_path(@item), local: true do |f| %>
       <td class="form-group">
         <%= f.file_field :image, accept: "image/*"%>
       </td>

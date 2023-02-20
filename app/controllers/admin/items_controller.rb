@@ -8,7 +8,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Book.new(item_params)
+    @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "投稿成功！successfully !"
       redirect_to admin_item_path(@item.id)
@@ -35,8 +35,15 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
+  def destroy #テスト用
+    @item = Item.find(params[:id])
+    item.destroy
+    flash[:notice] = "削除成功！successfully !"
+    redirect_to '/index'
+  end
+
   private
   def item_params
-    params.require(:list).permit(:name, :introduction, :genre_id, :genre_id, :price, :is_active)
+    params.require(:item).permit(:name, :introduction, :genre_id, :genre_id, :price, :is_active)
   end
 end
