@@ -18,5 +18,7 @@ Rails.application.routes.draw do
     #get 'homes/top' => 'homes#top', as: 'homes'
     get 'top' => 'homes#top', as: 'top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :customers
+    resources :orders
   end
 end
