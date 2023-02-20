@@ -1,22 +1,23 @@
 <h4>ショッピングカート</h4>
 <table class="table table-bordered">
   <thead>
-  <tr class="table-active">
-    <th scope="col" colspan="2">商品名</th>
-    <th scope="col">単価(税込)</th>
-    <th scope="col">数量</th>
-    <th scope="col">小計</th>
-    <th scope="col"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th></th>
-    <th>商品名表示させる</th>
-    <th>単価表示させる</th>
-    <th>数量表示させる</th>
-    <th>小計表示させる</th>
-    <th>削除ボタン</th>
-  </tr>
+    <tr class="table-active">
+      <th scope="col" colspan="2">商品名</th>
+      <th scope="col">単価(税込)</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <%= @cart_items.each do |cart_item| %>
+    <tr>
+      <th></th>
+      <th><%= cart_item.item.item_name %></th>
+      <th>¥<%= ((cart_item.item.price*1.1).floor).to_s(:delimited) %></th>
+      <th>数量表示させる</th>
+      <th>¥<%= ((cart_item.item.price*1.1).floor*cart_item.amount).to_s(:delimited) %></th>
+      <th>削除ボタン</th>
+    </tr>
   </tbody>
 </table>
