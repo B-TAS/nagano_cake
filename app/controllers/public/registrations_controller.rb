@@ -5,9 +5,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
+  #def new
   #   super
-  # end
+  #end
 
   # POST /resource
   # def create
@@ -37,6 +37,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  #before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+    my_page_path
+  end
+
 
   protected
 

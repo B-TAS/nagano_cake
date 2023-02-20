@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
    # 会員側のルーティング設定
   scope module: :public do
+    root to: 'homes#top'
     resources :customers, only: [:show, :edit, :update]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
   end
