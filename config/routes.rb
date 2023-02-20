@@ -23,4 +23,9 @@ Rails.application.routes.draw do
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
+
+  namespace :public do
+    get 'top' => 'homes#top', as: 'top'
+    get 'about' => 'homes#about', as: 'about'
+  end
 end
