@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.nagano_cake_1 {
-  background-image: url(img/nagano_cake_1)
+.nagano_cake_1{
+  background-image: image-url("nagano_cake_1.jpg");
+  height: 400px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover;
   background-attachment: fixed;
+}
+
+p {
+  color: red;
 }
