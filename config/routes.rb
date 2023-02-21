@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
-
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :admin do
@@ -23,9 +21,22 @@ Rails.application.routes.draw do
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
+<<<<<<< HEAD
   
   scope module: :public do
     delete "cart_items/destroy_all" => 'cart_items#destroy_all', as: "destroy_all"
     resources :cart_items, only: [:index, :destroy, :update, :create]
   end
 end
+=======
+
+   # 会員側のルーティング設定
+  scope module: :public do
+    root to: 'homes#top'
+    resources :customers, only: [:show, :edit, :update]
+    resources :items, only: [:index, :show]
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+  end
+
+end
+>>>>>>> origin/develop
