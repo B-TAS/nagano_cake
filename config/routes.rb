@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     #get 'homes/top' => 'homes#top', as: 'homes'
     get 'top' => 'homes#top', as: 'top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :customers
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :orders
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]

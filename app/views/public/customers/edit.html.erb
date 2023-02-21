@@ -1,10 +1,7 @@
-<h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
-<%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch  do |f| %>
+<h4>会員情報編集</h4>
+
+<%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
   <table>
-    <tr>
-      <th>会員ID</th>
-      <td><%= @customer.id %></td>
-    </tr>
     <tr>
       <th>氏名</th>
       <td><%= f.text_field :last_name %></td>
@@ -31,10 +28,6 @@
       <th>メールアドレス</th>
       <td><%= f.text_field :email %></td>
     </tr>
-    <tr>
-      <th>会員ステータス</th>
-      <td></td>
-    </tr>
   </table>
-  <%= f.submit '変更を保存する' %>
+  <%= f.submit '編集内容を保存する' %>
 <% end %>
