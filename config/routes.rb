@@ -21,13 +21,12 @@ Rails.application.routes.draw do
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
-
    # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
     resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:index, :show]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'about' => 'homes#about', as: 'about'
   end
-
 end
