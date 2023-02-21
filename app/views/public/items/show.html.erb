@@ -1,0 +1,20 @@
+
+<div>
+  <table>
+      <tr>
+        <th rowspan="5"><%= image_tag @item.image, size: "200x150" %></th>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <td>￥<%= @item.introduction %></td>
+      </tr>
+      <tr>
+        <td>￥<%= @item.price %><span>（税込）</span></td>
+      </tr>
+  </table>
+
+</div>
+  <%= link_to "カートに入れる", cart_items_path(@item.id), class: "btn btn-success" %>
+
+  <!--テスト用-->
+  <%= link_to "Destroy", admin_item_path, method: :delete %>
