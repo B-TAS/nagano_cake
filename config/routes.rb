@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     #get 'homes/top' => 'homes#top', as: 'homes'
     get 'top' => 'homes#top', as: 'top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :customers
+    resources :orders
+    #destroyは後で削除
+    resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
+
    # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
