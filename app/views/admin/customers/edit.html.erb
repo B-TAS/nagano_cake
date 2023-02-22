@@ -33,7 +33,12 @@
     </tr>
     <tr>
       <th>会員ステータス</th>
-      <td></td>
+      <td>
+        <%= radio_button_tag :is_deleted, 'false' %>
+        <%= label_tag :is_deleted_false, '有効' %>
+        <%= radio_button_tag :is_deleted, 'true' %>
+        <%= label_tag :is_deleted_true, '退会' %>
+      </td>
     </tr>
   </table>
   <%= f.submit '変更を保存する' %>

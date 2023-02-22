@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
 
-  enum membership: { enabled: 0, disabled: 1 }
+  validates :is_deleted, inclusion: { in: [true, false] }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
