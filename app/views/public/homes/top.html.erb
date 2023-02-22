@@ -11,13 +11,13 @@
   </div>
   <div>
     <h2>新着商品</h2>
-    <% @items.each do |item| %>
+    <% @items.first(4).each do |item| %>
     <td>
-      <tr><%= link_to item.name, admin_item_path(item.id) %></tr>
-      <tr><% item.name %></tr>
+      <tr><%= image_tag item.image, size: "200x200" %></tr>
+      <tr><%= link_to item.name, item_path(item.id) %></tr>
       <tr><%= item.price %></tr>
     </td>
     <% end %>
   </div>
-  <%#= link_to "全ての商品を見る", public_items_path %>
+  <%= link_to "全ての商品を見る", items_path %>
 </div>

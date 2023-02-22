@@ -5,7 +5,7 @@
 <div>
   <table>
       <tr>
-        <th rowspan="5"><%= image_tag @item.image, size: "200x150" %></th>
+        <th rowspan="5"><%= image_tag @item.get_image, size: "200x150" %></th>
         <th>商品名</th>
         <td><%= @item.name %></td>
       </tr>
