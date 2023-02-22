@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     #get 'homes/top' => 'homes#top', as: 'homes'
     get 'top' => 'homes#top', as: 'top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :customers
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :orders
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
@@ -24,9 +24,10 @@ Rails.application.routes.draw do
    # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
-    resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:index, :show]
+    resources :customers, only: [:update]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/my_page/edit' => 'customers#edit', as: 'my_page_edit'
     get 'about' => 'homes#about', as: 'about'
   end
 end
