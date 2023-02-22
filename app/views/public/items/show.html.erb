@@ -2,7 +2,7 @@
 <div>
   <table>
       <tr>
-        <th rowspan="5"><%= image_tag @item.image, size: "200x150" %></th>
+        <th rowspan="5"><%= image_tag @item.get_image, size: "200x150" %></th>
         <td><%= @item.name %></td>
       </tr>
       <tr>
@@ -12,9 +12,18 @@
         <td>￥<%= @item.price %><span>（税込）</span></td>
       </tr>
   </table>
-
 </div>
-  <%= link_to "カートに入れる", cart_items_path(@item.id), class: "btn btn-success" %>
+
+<%# if customer_signed_in? && @item.is_active == 0 %>
+  <%= form_with model: @cart_item do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.select :amount, *[1..10] %>
+
+    <%= f.submit "カートに入れる", class: 'btn btn-success' %>
+  <% end %>
+<%# elsif @item.is_active == 1 %>
+  <!--<strong>この商品は購入できません。</strong>-->
+<%# end %>
 
   <!--テスト用-->
   <%= link_to "Destroy", admin_item_path, method: :delete %>
