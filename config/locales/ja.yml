@@ -4,3 +4,7 @@ ja:
         in_store:
           in_store_now: "販売中"
           sold_out: "売り切れ"
+      customer:
+        membership:
+          enabled: "有効"
+          disabled: "退会"
