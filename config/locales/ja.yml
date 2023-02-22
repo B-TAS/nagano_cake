@@ -3,4 +3,4 @@ ja:
       item:
         in_store:
           in_store_now: "販売中"
-          sold_out: "売り切れ"
+          sold_out: "販売停止中"

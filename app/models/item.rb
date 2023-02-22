@@ -4,7 +4,9 @@ class Item < ApplicationRecord
   # cart_itemを通してcustomerに接続
   has_many :customers, through: :cart_items
   has_one_attached :image
-  enum is_active: { in_store_now: 0, sold_out: 1 }
+
+  # validates :name, presence: true #<=他カラムの記述
+  validates :is_active, inclusion: { in: [true, false] }
 
   def get_image
     (image.attached?) ? image : 'no_image.jpg'
