@@ -17,12 +17,11 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     #get '/' => 'homes#top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :customers
+    resources :customers, only: [:index, :show, :edit, :update]
     resources :orders
     #destroyは後で削除
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
-
    # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :show]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
+    delete "cart_items/destroy_all" => 'cart_items#destroy_all', as: "destroy_all"
+    resources :cart_items, only: [:index, :destroy, :update, :create]
+    get 'customers/my_page/edit' => 'customers#edit', as: 'my_page_edit'
   end
 
 end

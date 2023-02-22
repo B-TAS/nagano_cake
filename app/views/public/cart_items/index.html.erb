@@ -1,1 +1,68 @@
-<h1>ショッピングカートの仮ページ</h1>
+<div class ="container">
+  <div class ="row">
+    <div class ="col-sm-4">
+      <h4>ショッピングカート</h4>
+    </div>
+    <div class ="col-sm-8 text-right">
+      <%= link_to "カートを空にする", destroy_all_path, method: :delete, class: "btn btn-sm btn-danger"%>
+    </div>
+  </div>
+    <br>
+    <br>
+
+    <div class ="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">商品名</th>
+            <th scope="col">単価(税込)</th>
+            <th scope="col">数量</th>
+            <th scope="col">小計</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @cart_items.each do |cart_item| %>
+              <tr>
+                <th><% if cart_item.item.image.attached?%>
+                      <%= image_tag cart_item.item.image, size: "100x60" %>
+                    <% end %>
+                    <span>　<%= cart_item.item.name %></span>
+                </th>
+                <th>¥<%= cart_item.item.with_tax_price.to_s(:delimited) %></th>
+                <th class="text-center">
+                  <%= form_with model: cart_item, url: cart_item_path(cart_item.id) do |f| %>
+                  <%= f.select :amount, *[1..10] %>
+                  <%= f.submit "変更", class: 'btn btn-success' %>
+                  <% end %>
+                </th>
+                <th>¥<%= cart_item.subtotal.to_s(:delimited) %></th>
+                <th class="text-center"><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-sm btn-danger" %></th>
+              </tr>
+            </tr>
+            <% (@array += cart_item.subtotal).to_s(:delimited)%>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+
+      <br>
+      <br>
+
+    <div class ="row">
+      <div class ="col-sm-8">
+          <% if current_customer.cart_items.count !=0 %>
+            <%= link_to "買い物を続ける", root_path, class: "btn btn-sm btn-primary"%>
+          <% end %>
+      </div>
+      <div class ="col-sm-4 loat-right">
+          <table class="table table-bordered">
+            <tr>
+              <th class="table-active">合計金額</th>
+              <th>
+                <%= @array.to_s(:delimited) %>
+              </tr>
+          </table>
+      </div>
+    </div>
+</div>
