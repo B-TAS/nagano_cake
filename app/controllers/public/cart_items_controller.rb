@@ -1,7 +1,8 @@
 class Public::CartItemsController < ApplicationController
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @array = 0
   end
 
   def create
@@ -19,19 +20,19 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
-    cart_item = CartItem.find(params[:id])
-    cart_item.update(cart_item_params)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
     redirect_to request.referer
   end
 
   def destroy
     cart_item = CartItem.find(params[:id])
-    cart_item.deatroy
+    cart_item.destroy
     redirect_to request.referer
   end
 
   def destroy_all
-    CartItem.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to request.referer
   end
 
