@@ -5,7 +5,7 @@
 <div>
   <table>
       <tr>
-        <th rowspan="5"><%= image_tag @item.image, size: "200x150" %></th>
+        <th rowspan="5"><%= image_tag @item.get_image, size: "200x150" %></th>
         <th>商品名</th>
         <td><%= @item.name %></td>
       </tr>
@@ -23,7 +23,13 @@
       </tr>
       <tr>
         <th>販売ステータス</th>
-        <td><%= @item.is_active %></td>
+        <td>
+          <% if @item.is_active == true %>
+            販売中
+          <% else %>
+            販売停止中
+          <% end %>
+        </td>
       </tr>
   </table>
 
