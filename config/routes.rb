@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :admin do
     #get 'homes/top' => 'homes#top', as: 'homes'
-    get 'top' => 'homes#top', as: 'top'
+    root to: 'homes#top'
+    #get '/' => 'homes#top'
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders
@@ -24,9 +25,10 @@ Rails.application.routes.draw do
    # 会員側のルーティング設定
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about'
+    get "about" => "homes#about"
+    resources :customers, only: [:edit, :update]
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update]
+    resources :cart_items, only: [:index, :show]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
     delete "cart_items/destroy_all" => 'cart_items#destroy_all', as: "destroy_all"
     resources :cart_items, only: [:index, :destroy, :update, :create]
