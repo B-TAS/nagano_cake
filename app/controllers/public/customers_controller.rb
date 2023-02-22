@@ -18,6 +18,9 @@ class Public::CustomersController < ApplicationController
     end
   end
 
+  def confirm
+  end
+
   private
 
   def customer_params
