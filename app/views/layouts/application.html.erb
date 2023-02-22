@@ -9,19 +9,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <%= render "layouts/header" %>
+  </header>
   <body>
-    <header>
-    <% if customer_signed_in? %>
-    <li class="nav-item">
-      <%= link_to "顧客用ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark'  %>
-    </li>
-    <% else %>
-    <li>
-    <%#= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark'  %>
-    </li>
-    <% end %>
-    </header>
     <%= yield %>
   </body>
+  <footer>
+    <%= render "layouts/footer" %>
+  </footer>
 </html>
