@@ -1,7 +1,7 @@
 <h4>マイページ</h4>
 
 <strong>登録情報</strong>
-<%#= link_to "編集する", customers_edit_path %>
+<%= link_to "編集する", my_page_edit_path %>
 
 <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
   <table>
