@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   has_many :customers, through: :cart_items
   has_one_attached :image
 
+  has_many :order_detail
+
   # validates :name, presence: true #<=他カラムの記述
   validates :is_active, inclusion: { in: [true, false] }
 

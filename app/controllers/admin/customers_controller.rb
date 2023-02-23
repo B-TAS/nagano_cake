@@ -1,11 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-<<<<<<< HEAD
-    @customers = Customer.all
-=======
     @customers = Customer.all.page(params[:page]).per(10)
->>>>>>> origin/develop
   end
 
   def show
