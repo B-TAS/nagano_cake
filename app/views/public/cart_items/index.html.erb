@@ -55,7 +55,7 @@
             <%= link_to "買い物を続ける", root_path, class: "btn btn-sm btn-primary"%>
           <% end %>
       </div>
-      <div class ="col-sm-4 loat-right">
+      <div class ="col-sm-4">
           <table class="table table-bordered">
             <tr>
               <th class="table-active">合計金額</th>
@@ -65,4 +65,10 @@
           </table>
       </div>
     </div>
+</div>
+
+<div>
+  <% if current_customer.cart_items.count != 0 %>
+    <%= link_to "情報入力画面に進む", new_order_path %>
+  <% end%>
 </div>

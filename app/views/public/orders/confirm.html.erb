@@ -1,0 +1,74 @@
+<div class="container">
+
+  <h4>注文情報確認画面</h4>
+  <% @array = 0 %>
+  <%= form_with model: @order do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-bordered">
+        <thead class="table-active">
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |item| %>
+          <% @array += item.subtotal %>
+          <tr>
+            <td>
+              <% if item.item.image.attached?%>
+                <%= image_tag item.item.image, size: "100x60" %>
+              <% end %>
+              <span>　<%= item.item.name %></span>
+            </td>
+            <td><%= (item.item.with_tax_price).to_s(:delimited) %></td>
+            <td><%= item.amount %></td>
+            <td><%= item.subtotal.to_s(:delimited) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-active">送料</th>
+          <td>800</td>
+        </tr>
+        <tr>
+          <th class="table-active">商品合計</th>
+          <td><%= @array.to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th class="table-active">請求金額</th>
+          <td><%= (@array + 800).to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>支払方法</h4>
+    <p>　<%= @order.order_method_i18n %></p>
+  </div>
+  <div class="row">
+    <h4>お届け先</h4>
+    <p>　　〒<%= @order.postcode %></p>
+    <p>　　　<%= @order.address %></p>
+    <p>　　　<%= @order.name %></p>
+    <%= f.hidden_field :status, :value => "waiting" %>
+    <%= f.hidden_field :total_price, :value => @array %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :postcode, :value => @order.postcode %>
+    <%= f.hidden_field :name, :value => @order.name %>
+    <%= f.hidden_field :postage, :value => 800 %>
+    <%= f.hidden_field :order_method, :value => @order.order_method %>
+    <p><%= f.submit "注文を確定する", class: "btn btn-primary" %></p>
+  </div>
+      <% end %>
+
+</div>
