@@ -1,7 +1,10 @@
-<h3>配送先編集</h3>
-
-<%= form_with model: @delivery, url: delivery_path(@delivery), method: :PATCH do |f| %>
-<table class='table table-borderless'>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4>配送先編集</h4>
+    </div>
+    <%= form_with model: @delivery, url: delivery_path(@delivery), method: :PATCH do |f| %>
+    <table class='table table-borderless'>
           <tr>
             <th width="250">郵便番号（ハイフンなし）</th>
             <th class="form-group">
@@ -23,3 +26,5 @@
           </tr>
         </table>
       <% end %>
+  </div>
+</div>
