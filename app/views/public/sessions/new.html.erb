@@ -3,7 +3,7 @@
 <%= form_with model: @customer, url: customer_session_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
   <div class="field">
     <%= f.label :メールアドレス%>
-    <%= f.email_field :email, autofocus: true, placeholder: "toushitsu@ll.moons", autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, placeholder: "toushitsu@example.com", autocomplete: "email" %>
   </div>
 
   <div class="field">
