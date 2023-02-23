@@ -34,6 +34,6 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :destroy, :update, :create]
     get 'customers/my_page/edit' => 'customers#edit', as: 'my_page_edit'
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
+    resources :orders, only: [:index, :new, :show, :create, :confirm, :complete]
   end
-
 end
