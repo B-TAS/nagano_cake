@@ -1,6 +1,6 @@
 ja:
   enums:
-      item:
-        in_store:
-          in_store_now: "販売中"
-          sold_out: "販売停止中"
+    order:
+      order_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"

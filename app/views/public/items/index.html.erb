@@ -3,7 +3,7 @@
   <p>全<%= Item.count %>件</p>
 </div>
 <% @items.each do |item| %>
-  <div><%= image_tag item.image, size: "200x200" %></div>
+  <div><%= image_tag item.get_image, size: "200x200" %></div>
   <div><%= link_to item.name, item_path(item.id) %></div>
   <div>￥<%= item.price %></div>
 <% end %>
