@@ -1,15 +1,17 @@
-<h2>ログイン</h2>
-<h6>会員の方はこちらからログイン</h6>
-<%= form_with model: @customer, url: customer_session_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス%>
-    <%= f.email_field :email, autofocus: true, placeholder: "toushitsu@example.com", autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード%>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4 class="table-active">ログイン</h4>
+      <h6 class="table-active">会員の方はこちらからログイン</h6>
+        <%= form_with model: @customer, url: customer_session_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+    <div class="field">
+      <%= f.label :メールアドレス%>
+      <%= f.email_field :email, autofocus: true, placeholder: "toushitsu@example.com", autocomplete: "email" %>
+    </div>
+    <div class="field">
+      <%= f.label :パスワード%>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
 
   <%# if devise_mapping.rememberable? %>
     <!--<div class="field">-->
@@ -21,6 +23,7 @@
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+    <% end %>
+    <%= render "public/shared/links" %>
+  </div>
+</div>
