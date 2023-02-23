@@ -1,20 +1,17 @@
 class Public::OrdersController < ApplicationController
   def index
-    @orders   = Order.all
-    @catr_items = Cart_items.find(params[:id][:item_id])
+    @orders = Order.all
+    # @catr_items = Cart_items.find(params[:id][:item_id])
   end
 
   def show
-
+    @order = Order.find(params[:id])
+    @array = 0
   end
-
 
   def new
     @order = Order.new
     @addresses = Delivery.where(customer_id: current_customer.id)
-  end
-
-  def index
   end
 
   def create
@@ -32,9 +29,6 @@ class Public::OrdersController < ApplicationController
     end
     current_customer.cart_items.destroy_all
     redirect_to complete_path
-  end
-
-  def show
   end
 
   def confirm
