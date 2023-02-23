@@ -1,6 +1,8 @@
 class Public::DeliveriesController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
-    @deliveries = Delivery.all
+    @deliveries = Delivery.where(customer:current_customer)
     @delivery = Delivery.new
   end
 
@@ -15,7 +17,6 @@ class Public::DeliveriesController < ApplicationController
     flash[:notice] = "配送先の登録が完了しました。"
     redirect_to deliveries_path(@customer)
    else
-    @deliveries = Delivery.all
     render :index
    end
   end
@@ -23,11 +24,11 @@ class Public::DeliveriesController < ApplicationController
   def update
     @delivery = Delivery.find(params[:id])
     @delivery.update(delivery_params)
-    if @book.save
-    flash[:notice] = "配送先の編集が完了しました。"
-    redirect_to deliveries_path(@customer)
+    if  @delivery.save
+     flash[:notice] = "配送先の編集が完了しました。"
+     redirect_to deliveries_path(@customer)
     else
-    render :edit
+     render :edit
     end
   end
 
