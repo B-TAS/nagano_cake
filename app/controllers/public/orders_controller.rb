@@ -6,7 +6,6 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @array = 0
   end
 
   def new
