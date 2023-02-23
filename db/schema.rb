@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_095849) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "custmer_id", null: false
+    t.integer "customer_id", null: false
     t.integer "item_id", null: false
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_095849) do
     t.string "postcode", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
-    t.boolean "is_deleted", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_095849) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.integer "custmer_id", null: false
+    t.integer "order_id", null: false
     t.integer "item_id", null: false
     t.integer "amount", null: false
     t.integer "price", null: false

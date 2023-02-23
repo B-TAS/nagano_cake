@@ -1,0 +1,23 @@
+<!--<div>genre sarch</div>-->
+<h1>顧客TOPページ</h1>
+<div>
+  <div class="nagano_cake_2">
+    <p>
+      ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできませんが、<br>
+      購入には会員登録が必要になります。
+    </p>
+  </div>
+  <div>
+    <h2>新着商品</h2>
+    <% @items.first(4).each do |item| %>
+    <td>
+      <tr><%= image_tag item.get_image, size: "200x200" %></tr>
+      <tr><%= link_to item.name, item_path(item.id) %></tr>
+      <tr><%= item.price %></tr>
+    </td>
+    <% end %>
+  </div>
+  <%= link_to "全ての商品を見る", items_path %>
+</div>

@@ -1,0 +1,38 @@
+<div class= "container">
+  <h4 class="py-4">会員情報編集</h4>
+
+  <%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
+    <table>
+      <tr>
+        <th>氏名</th>
+        <td><%= f.text_field :last_name %></td>
+        <td><%= f.text_field :first_name %></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= f.text_field :kana_last_name %></td>
+        <td><%= f.text_field :kana_first_name %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_field :postcode %></td>
+      </tr>
+       <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+       <tr>
+        <th>電話番号</th>
+        <td><%= f.text_field :phone_number %></td>
+      </tr>
+       <tr>
+        <th>メールアドレス</th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+    </table>
+    <div class="py-2">
+      <%= f.submit '編集内容を保存する', class: 'btn btn-success' %>
+      <%= link_to '退会する', customers_confirm_path, class: "glyphicon glyphicon-tint btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
