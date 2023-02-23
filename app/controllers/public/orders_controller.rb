@@ -1,11 +1,16 @@
 class Public::OrdersController < ApplicationController
+  def index
+    @orders = Order.all
+    # @catr_items = Cart_items.find(params[:id][:item_id])
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 
   def new
     @order = Order.new
     @addresses = Delivery.where(customer_id: current_customer.id)
-  end
-
-  def index
   end
 
   def create
@@ -23,9 +28,6 @@ class Public::OrdersController < ApplicationController
     end
     current_customer.cart_items.destroy_all
     redirect_to complete_path
-  end
-
-  def show
   end
 
   def confirm
@@ -50,5 +52,4 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:order_method, :postcode, :address, :name, :status, :total_price, :postage)
   end
-
 end

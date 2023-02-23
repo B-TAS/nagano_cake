@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre
+  has_many :order_details
   has_many :cart_items
   # cart_itemを通してcustomerに接続
   has_many :customers, through: :cart_items
