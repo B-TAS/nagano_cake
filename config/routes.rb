@@ -41,5 +41,4 @@ Rails.application.routes.draw do
     get "orders/complete" => 'orders#complete', as: "complete"
     resources :orders, only: [:new, :index, :show, :create]
   end
-
 end
