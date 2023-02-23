@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "about" => "homes#about"
+    # unsubscribeをupdateの上に記述する必要がある.updateが/update.idとなるため,unsubscribより上に記述してしますとidがunsubscribに反応してしますためエラーが生じる.
+    # idは数字以外も取得してします.unsubscribもidとして認識されてしまう.
+    patch '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     resources :customers, only: [:update]
     get 'customers/my_page' => 'customers#show', as: 'my_page'
     get 'customers/my_page/edit' => 'customers#edit', as: 'my_page_edit'
