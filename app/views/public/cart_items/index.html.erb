@@ -1,16 +1,14 @@
 <div class ="container">
   <div class ="row">
-    <div class ="col-sm-4">
+    <div class ="col-sm-4 mt-5">
       <h4>ショッピングカート</h4>
     </div>
-    <div class ="col-sm-8 text-right">
+    <div class ="col-sm-8 mt-5 text-right">
       <%= link_to "カートを空にする", destroy_all_path, method: :delete, class: "btn btn-sm btn-danger"%>
     </div>
   </div>
-    <br>
-    <br>
 
-    <div class ="row">
+    <div class ="row m-4">
       <table class="table table-bordered">
         <thead>
           <tr class="table-active">
@@ -23,7 +21,7 @@
           </thead>
           <tbody>
             <% @cart_items.each do |cart_item| %>
-              <tr>
+              <tr class="table-light">
                 <th><% if cart_item.item.image.attached?%>
                       <%= image_tag cart_item.item.image, size: "100x60" %>
                     <% end %>
@@ -46,29 +44,26 @@
       </table>
     </div>
 
-      <br>
-      <br>
-
-    <div class ="row">
+    <div class ="row m-4">
       <div class ="col-sm-8">
           <% if current_customer.cart_items.count !=0 %>
-            <%= link_to "買い物を続ける", root_path, class: "btn btn-sm btn-primary"%>
+            <%= link_to "<<", items_path, class: "btn btn-sm btn-secondary" %>
           <% end %>
       </div>
       <div class ="col-sm-4">
-          <table class="table table-bordered">
+          <table class="table table-bordered text-center">
             <tr>
               <th class="table-active">合計金額</th>
-              <th>
-                <%= @array.to_s(:delimited) %>
+              <th class="table-light">
+                ¥<%= @array.to_s(:delimited) %>
               </tr>
           </table>
       </div>
     </div>
 </div>
 
-<div>
+<div class="row m-5">
   <% if current_customer.cart_items.count != 0 %>
-    <%= link_to "情報入力画面に進む", new_order_path %>
+    <%= link_to "情報入力画面に進む", new_order_path, class: "btn btn-info btn-lg btn-block" %>
   <% end%>
 </div>

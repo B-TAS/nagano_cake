@@ -1,9 +1,9 @@
 class Delivery < ApplicationRecord
 
   belongs_to :customer
- 
+
   def address_display
-    '〒' + postal_code + ' ' + address + ' ' + name
+    '〒' + postcode + ' ' + address + ' ' + name
   end
-  
+
 end

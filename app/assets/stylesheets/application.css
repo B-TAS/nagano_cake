@@ -14,13 +14,6 @@
  *= require_self
  */
 
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  Color: #000;  /* ページ全体の文字色変更 */
-}
-
 .headercolor{
   background-color: #ff69b4;
 }
@@ -32,4 +25,3 @@
 .textlines-radius{
   border-radius:5px;
 }
-
