@@ -1,43 +1,39 @@
 <h2>商品新規登録</h2>
 <table>
   <thead>
+    <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
     <tr>
       <th>商品画像</th>
-      <th>商品名</th>
-      <th>商品説明</th>
-      <th>ジャンル</th>
-      <th>税込価格</th>
-      <th>販売ステータス</th>
+      <td><%= f.file_field :image, accept: "image/*"%></td>
     </tr>
-  </thead>
-</table>
-<tbody>
-  <tr>
-    <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
-      <td class="form-group">
-        <%= f.file_field :image, accept: "image/*"%>
-      </td>
-      <td class="form-group">
-        <%= f.text_field :name %>
-      </td>
-      <td class="form-group">
-        <%= f.text_area :introduction %>
-      </td>
-      <td class="form-group">
-        <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--"} %>
-      </td>
-      <td class="form-group">
-        <%= f.text_field :price %>円
-      </td>
-      <td class="form-group">
-        <%= f.radio_button :is_active, :true %>
+    <tr>
+      <th>商品名</th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <td><%= f.text_area :introduction %></td>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--"} %></td>
+    </tr>
+    <tr>
+      <th>税込価格</th>
+      <td><%= f.text_field :price %>円</td>
+    </tr>
+    <tr>
+      <th>販売ステータス</th>
+      <td>
+        <%= f.radio_button :is_active, :true, checked: true%>
         <%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
         <%= f.radio_button :is_active, :false %>
         <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %>
       </td>
-      <td class="form-group">
-        <%= f.submit "新規登録", class: "btn btn-success" %>
-      </td>
+    </tr>
+    <td>
+      <%= f.submit "新規登録", class: "btn btn-success" %>
+    </td>
     <% end %>
-  </tr>
-</tbody>
+  </thead>
+</table>
