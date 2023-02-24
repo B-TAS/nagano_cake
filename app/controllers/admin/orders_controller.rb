@@ -1,13 +1,18 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    @customer = @order.customer
-    @order_details = OrderDetail.all
+    @order_details = @order.order_details
   end
 
-  # private
+   def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to request.referer
+  end
 
-  # def customer_params
-  #   params.require(:customer).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :postcode, :address, :phone_number, :email, :is_deleted)
-  # end
+  private
+
+  def order_params
+    params.require(:order).permit(:status)
+  end
 end

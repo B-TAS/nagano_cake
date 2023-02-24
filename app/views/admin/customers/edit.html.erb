@@ -35,7 +35,7 @@
       <tr>
         <th>会員ステータス</th>
         <td>
-          <%= radio_button_tag :is_deleted, 'false' %>
+          <%= radio_button_tag :is_deleted, 'false', checked: true %>
           <%= label_tag :is_deleted_false, '有効' %>
           <%= radio_button_tag :is_deleted, 'true' %>
           <%= label_tag :is_deleted_true, '退会' %>

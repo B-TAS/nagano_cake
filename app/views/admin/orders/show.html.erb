@@ -5,8 +5,8 @@
       <tr>
         <th>購入者</th>
         <td>
-          <%= @customer.last_name %>
-          <%= @customer.first_name %>
+          <%= @order.customer.last_name %>
+          <%= @order.customer.first_name %>
         </td>
       </tr>
       <tr>
@@ -46,14 +46,14 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_details.each do |order_detail| %>
+        <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.price %></td>
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal %></td>
             <td>
-              <%= form_with model: @order_detail do |f| %>
+              <%= form_with model: order_detail, url: admin_order_path(@order), local: true, method: :patch do |f| %>
               <%= f.select :making_status, { "製作不可": "production_not_possible", "製作待ち": "production_pending", "製作中": "in_production", "製作完了": "production_complete" }, { include_blank: true } %>
               <%= f.submit "更新", class: "btn-success" %>
               <% end %>
