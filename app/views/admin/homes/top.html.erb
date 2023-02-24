@@ -20,9 +20,11 @@
                 <%= order.customer.first_name %>
               </td>
               <td>
+                <% @array = 0 %>
                 <% order.order_details.each do |order_detail| %>
-                  <%= order_detail.amount %>
+                  <% @array += order_detail.amount %>
                 <% end %>
+                <%= @array %>
               </td>
               <td></td>
             </tr>
