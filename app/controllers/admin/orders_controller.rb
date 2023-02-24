@@ -7,12 +7,11 @@ class Admin::OrdersController < ApplicationController
    def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to request.referer
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:status)
+  params.require(:order).permit(:status, order_details_attributes: [:making_status, :id])
   end
 end
