@@ -7,15 +7,34 @@
   height: 400px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-attachment: fixed;
 }
 
-.nagano_cake_2{
-  background-image: image-url("nagano_cake_2.jpg");
+.nagano_cake_2 {
+  background-image: image-url("top-cake.jpg");
+  width: 75%;
   height: 400px;
+  padding: 50px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
+  background-size: 900px auto;
+}
+
+.nagano_cake_text {
+  width: 70%;
+  margin: 0px auto;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center;
+  padding: 70px;
+  color: #fff;
+}
+
+.new-item {
+  margin: 20px 0;
+}
+
+.link-text {
+  color: #db7093;
+  text-decoration: none;
 }

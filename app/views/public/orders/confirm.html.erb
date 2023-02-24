@@ -60,7 +60,7 @@
     <p>　　〒<%= @order.postcode %></p>
     <p>　　　<%= @order.address %></p>
     <p>　　　<%= @order.name %></p>
-    <%= f.hidden_field :status, :value => "waiting" %>
+    <%= f.hidden_field :status, :value => @order.status %>
     <%= f.hidden_field :total_price, :value => @array %>
     <%= f.hidden_field :address, :value => @order.address %>
     <%= f.hidden_field :postcode, :value => @order.postcode %>
