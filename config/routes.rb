@@ -34,8 +34,8 @@ Rails.application.routes.draw do
     get 'customers/my_page/edit' => 'customers#edit', as: 'my_page_edit'
     get '/customers/confirm' => 'customers#confirm'
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :destroy, :update, :create]
     delete "cart_items/destroy_all" => 'cart_items#destroy_all', as: "destroy_all"
+    resources :cart_items, only: [:index, :destroy, :update, :create]
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
     post 'orders/confirm' => 'orders#confirm'
     get "orders/complete" => 'orders#complete', as: "complete"
