@@ -1,40 +1,46 @@
-<h2>商品詳細</h2>
-<p>
-
-</p>
-<div>
-  <table>
+<div class="container">
+  <div class="row m-5">
+    <h4><i class="fas fa-heart color_red"></i> 商品詳細</h4>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag @item.get_image, size: "400x250" %>
+    </div>
+    <div class="col">
+    <table>
       <tr>
-        <th rowspan="5"><%= image_tag @item.get_image, size: "200x150" %></th>
-        <th>商品名</th>
-        <td><%= @item.name %></td>
+        <th class="p-3">商品名</th>
+        <td class="p-3"><%= @item.name %></td>
       </tr>
       <tr>
-        <th>商品説明</th>
-        <td><%= @item.introduction %></td>
+        <th class="p-3">商品説明</th>
+        <td class="p-3"><%= @item.introduction %></td>
       </tr>
       <tr>
-        <th>ジャンル</th>
-        <td><%= @item.genre.name %></td>
+        <th class="p-3">ジャンル</th>
+        <td class="p-3"><%= @item.genre.name %></td>
       </tr>
       <tr>
-        <th>税込価格<br>（税抜価格）</th>
-        <td><%= @item.price %></td>
+        <th class="p-3">税込価格<br>（税抜価格）</th>
+        <td class="p-3"><%= @item.price %></td>
       </tr>
       <tr>
-        <th>販売ステータス</th>
-        <td>
+        <th class="p-3">販売ステータス</th>
+        <td class="p-3">
           <% if @item.is_active == true %>
-            販売中
+            <span class="valid-status">販売中</span>
           <% else %>
-            販売停止中
+            <span class="deleted-status">販売停止中</span>
           <% end %>
         </td>
       </tr>
+      <tr>
+        <td colspan="2" class="p-3 text-center"><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-info" %><td>
+      </tr>
   </table>
-
+  </div>
+  </div>
 </div>
-  <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %>
 
   <!--テスト用-->
-  <%= link_to "Destroy", admin_item_path, method: :delete %>
+  <%#= link_to "Destroy", admin_item_path, method: :delete %>
