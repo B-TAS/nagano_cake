@@ -27,7 +27,7 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-          <%= form_with model: @order do |f| %>
+          <%= form_with model: @order, url: admin_order_path(@order), local: true,method: :patch do |f| %>
           <%= f.select :status, { "入金待ち": "payment_waiting", "入金確認": "payment_confirmation", "製作中": "in_production", "発送準備中": "preparing_delivery", "発送済み": "delivered" }, { include_blank: true } %>
           <%= f.submit "更新", class: "btn-success" %>
           <% end %>
