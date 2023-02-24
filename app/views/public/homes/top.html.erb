@@ -1,7 +1,7 @@
 <!--<div>genre sarch</div>-->
 <div class="conteiner">
-  <div class="row m-4">
-    <div class="col-2">
+  <div class="row mt-5 mb-5 ml-3">
+    <div class="col-md-2">
       <table class="table">
         <tr>
           <th class="table-dangre">ジャンル検索</th>
@@ -13,7 +13,8 @@
         <% end %>
       </table>
     </div>
-    <div class="col-10">
+
+    <div class="col-md-10 mb-5">
       <div class="nagano_cake_2 ">
         <p class="nagano_cake_text">
           ようこそ、ながのCAKEへ！<br><br>
@@ -25,8 +26,8 @@
         <h2 class="new-item">新着商品</h2>
 
         <div class="conteiner">
-          <div class="row">
-            <div class="col-11 mb-4">
+          <div class="row mb-3">
+            <div class="col-11">
               <div class="d-flex">
                 <% @items.first(4).each do |item| %>
                   <div class="mx-4">
@@ -35,12 +36,12 @@
                     <%= item.price %>
                   </div>
                 <% end %>
-              </div>
+              </div><br>
+              <%= link_to "全ての商品を見る", items_path %>
             </div>
           </div>
-        </div>
-      <%= link_to "全ての商品を見る", items_path %>
-    </div>
+      </div>
 
+    </div>
   </div>
 </div>

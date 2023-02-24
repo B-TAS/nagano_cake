@@ -37,7 +37,7 @@ class Public::OrdersController < ApplicationController
       # ご自身の住所
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:select_address] == "1"
       # 登録済の配送先
       @address = Delivery.find(params[:order][:address_id])
