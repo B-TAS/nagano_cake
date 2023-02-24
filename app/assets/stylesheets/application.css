@@ -24,3 +24,7 @@
 .textlines-radius{
   border-radius:5px;
 }
+
+.navbar-brand{
+ font-family: "Lucida Console",fantasy,cursive,serif,Courier,"Segoe Print",sans-serif;
+}
