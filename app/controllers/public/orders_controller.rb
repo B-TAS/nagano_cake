@@ -1,11 +1,16 @@
 class Public::OrdersController < ApplicationController
+  def index
+    @orders = Order.all
+    # @catr_items = Cart_items.find(params[:id][:item_id])
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 
   def new
     @order = Order.new
     @addresses = Delivery.where(customer_id: current_customer.id)
-  end
-
-  def index
   end
 
   def create
@@ -25,9 +30,6 @@ class Public::OrdersController < ApplicationController
     redirect_to complete_path
   end
 
-  def show
-  end
-
   def confirm
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
@@ -36,7 +38,7 @@ class Public::OrdersController < ApplicationController
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-    elsif params[:select_address] == "1"
+    elsif params[:order][:select_address] == "1"
       # 登録済の配送先
       @address = Delivery.find(params[:order][:address_id])
       @order.postcode = @address.postcode
@@ -50,5 +52,4 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:order_method, :postcode, :address, :name, :status, :total_price, :postage)
   end
-
 end
