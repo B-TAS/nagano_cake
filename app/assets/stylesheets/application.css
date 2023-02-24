@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 .headercolor{
   background-color: #ff69b4;
 }
@@ -24,3 +25,4 @@
 .textlines-radius{
   border-radius:5px;
 }
+

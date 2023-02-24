@@ -19,7 +19,7 @@
         <div>　　　<%= current_customer.last_name %> <%= current_customer.first_name %></div>
         <br>
         <%= f.radio_button :select_address, 1 %><%= f.label :address_id, "登録済住所から選択" %><br>
-        <%= f.select :address_id, options_from_collection_for_select(Delivery.all, :id, :address_display) %>
+        <%= f.select :address_id, options_from_collection_for_select(@addresses.all, :id, :address_display) %>
         <br>
         <%= f.radio_button :select_address, 2 %><%= f.label :address_id, "新しいお届け先" %><br>
         <table>
