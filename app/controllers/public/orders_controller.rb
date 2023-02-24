@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
       order_details.item_id = cart_item.item_id
       order_details.amount = cart_item.amount
       order_details.price = (cart_item.item.price * 1.1).to_i
-      order_details.making_status = "not_make"
+      order_details.making_status = 0
       order_details.save
     end
     current_customer.cart_items.destroy_all

@@ -1,21 +1,22 @@
-<div class ="container">
-  <div class ="row-lg-8 md-9">
+<div class="container">
+  <div class="row mt-5 mb-5">
 
-    <h3>注文情報入力</h3>
-    <br>
-    <br>
-    <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+    <div class="col-3">
+      <h3>注文情報入力</h3>
+    </div>
+
+    <div class="col-9">
+      <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
       <h4>支払方法</h4>
-        <%= f.radio_button :order_method, Order.order_methods.key(0) %>
+        <%= f.radio_button :order_method, Order.order_methods.key(0), checked: true %>
         <%= f.label :order_method_credit_card, Order.order_methods_i18n[:credit_card] %><br>
 
         <%= f.radio_button :order_method, Order.order_methods.key(1) %>
-        <%= f.label :order_method_transfer, Order.order_methods_i18n[:transfer]%>
+        <%= f.label :order_method_transfer, Order.order_methods_i18n[:transfer]%><br><br>
 
       <h4>お届け先</h4>
-        <%= f.radio_button :select_address, 0 %><%= f.label :address_id, "ご自身の住所" %><br>
-        <div>　　〒<%= current_customer.postcode %></div>
-        <div>　　　<%= current_customer.address %></div>
+        <%= f.radio_button :select_address, 0, checked: true %><%= f.label :address_id, "ご自身の住所" %><br>
+        <div>　　〒<%= current_customer.postcode %>　<%= current_customer.address %></div>
         <div>　　　<%= current_customer.last_name %> <%= current_customer.first_name %></div>
         <br>
         <%= f.radio_button :select_address, 1 %><%= f.label :address_id, "登録済住所から選択" %><br>
@@ -36,8 +37,10 @@
             <td><%= f.text_field :name, placeholder: "糖質制限" %></td>
           </tr>
         </table>
+        <br>
       <%= f.submit "確認画面へ進む", class: "btn btn-primary", method: :POST %>
-    <% end %>
+      <% end %>
+    </div>
 
   </div>
 </div>

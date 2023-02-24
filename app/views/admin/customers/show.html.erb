@@ -1,7 +1,15 @@
 <div class= "container">
-  <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h4>
-  <%= form_with model: @customer, url: admin_customer_path(@customer), method: :GET do |f| %>
-    <table>
+  <div class="row">
+    <div class="text-center">
+      <h4 class="table-active text-center px-3">
+        <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
+      </h4>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-8 px-5 px-sm-0 mr-auto">
+    <%= form_with model: @customer, url: admin_customer_path(@customer), method: :GET do |f| %>
+    <table class="table table-borderless table-sm table-hover col-sm-12 col-md-8 px-5 px-sm-0 mr-auto">
       <tr>
         <th>会員ID</th>
         <td><%= @customer.id %></td>
@@ -40,10 +48,17 @@
           <% end %>
         </td>
       </tr>
-    </table>
-  <% end %>
 
-  <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
-  <%= link_to "注文履歴一覧を見る", root_path, class: "btn btn-primary" %>
-
+    <% end %>
+      <tr>
+        <th></th>
+        <th><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success ml-4" %></th>
+        <th><%= link_to "注文履歴一覧を見る", root_path, class: "btn btn-primary ml-4" %></th>
+      </tr>
+      </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
