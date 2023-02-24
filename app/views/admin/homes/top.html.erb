@@ -22,7 +22,7 @@
               <td>
                 <% @array = 0 %>
                 <% order.order_details.each do |order_detail| %>
-                <% @array += order_detail.amount %>
+                  <% @array += order_detail.amount %>
                 <% end %>
                 <%= @array %>
               </td>
