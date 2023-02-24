@@ -29,3 +29,7 @@
 .navbar-brand{
  font-family: "Lucida Console",fantasy,cursive,serif,Courier,"Segoe Print",sans-serif;
 }
+
+.color_red {
+color: #dc143c;
+}
