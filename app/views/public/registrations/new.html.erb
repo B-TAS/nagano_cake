@@ -28,7 +28,7 @@
       </tr>
       <tr>
           <th>住所</th>
-          <td colspan="2"><%= f.text_field :address, autofocus: true, placeholder: "炭水県化物市", class: "name textlines-radius" %></td>
+          <td colspan="2"><%= f.text_field :address, autofocus: true, placeholder: "炭水県化物市", class: "name textlines-radius", size:50 %></td>
       </tr>
       <tr>
           <th class="nowrap">電話番号（ハイフンなし）</th>
@@ -50,7 +50,7 @@
       </tr>
       <tr align="center">
           <td></td>
-          <th class="button"><%= f.submit "新規登録", class: 'btn btn-success' %></th>
+          <th class="button text-left"><%= f.submit "新規登録", class: 'btn btn-success' %></th>
           <td></td>
       </tr>
   </table>
