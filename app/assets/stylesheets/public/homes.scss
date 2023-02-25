@@ -14,20 +14,21 @@
 .nagano_cake_2 {
   background-image: image-url("top-cake.jpg");
   width: 75%;
-  height: 400px;
-  padding: 50px;
+  height: 55%;
+  padding-top: 70px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 900px auto;
 }
 
 .nagano_cake_text {
-  width: 70%;
-  margin: 0px auto;
+  width: 400px;
+  margin: auto;
   background-color: rgba( 0, 0, 0, 0.5);
   text-align: center;
-  padding: 70px;
+  padding: 15px;
   color: #fff;
+  font-size: 14px;
+  line-height: 30px;
 }
 
 .new-item {
