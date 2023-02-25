@@ -25,9 +25,9 @@
                 <% end %>
                 <span>　<%= item.item.name %></span>
               </td>
-              <td>¥ <%= (item.item.with_tax_price).to_s(:delimited) %></td>
+              <td><%= (item.item.with_tax_price).to_s(:delimited) %></td>
               <td><%= item.amount %></td>
-              <td>¥ <%= item.subtotal.to_s(:delimited) %></td>
+              <td><%= item.subtotal.to_s(:delimited) %></td>
             </tr>
             <% end %>
           </tbody>
@@ -38,15 +38,15 @@
         <table class="table table-bordered">
           <tr>
             <th class="table-active">送料</th>
-            <td class="table-light">¥ 800</td>
+            <td class="table-light">800</td>
           </tr>
           <tr>
             <th class="table-active">商品合計</th>
-            <td class="table-light">¥ <%= @array.to_s(:delimited) %></td>
+            <td class="table-light"><%= @array.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th class="table-active">請求金額</th>
-            <td class="table-light">¥ <%= (@array + 800).to_s(:delimited) %></td>
+            <td class="table-light"><%= (@array + 800).to_s(:delimited) %></td>
           </tr>
         </table>
       </div>
@@ -69,11 +69,10 @@
       <%= f.hidden_field :postage, :value => 800 %>
       <%= f.hidden_field :order_method, :value => @order.order_method %>
     </div>
-    <div class="row m-5">
+    <div class="row m-5 pb-5">
       <%= f.submit "注文を確定する", class: "btn btn-info btn-lg btn-block" %>
     </div>
-
-    <% end %>
+  <% end %>
 </div>
 
 
