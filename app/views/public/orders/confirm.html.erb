@@ -25,9 +25,9 @@
                 <% end %>
                 <span>　<%= item.item.name %></span>
               </td>
-              <td><%= (item.item.with_tax_price).to_s(:delimited) %></td>
+              <td>¥ <%= (item.item.with_tax_price).to_s(:delimited) %></td>
               <td><%= item.amount %></td>
-              <td><%= item.subtotal.to_s(:delimited) %></td>
+              <td>¥ <%= item.subtotal.to_s(:delimited) %></td>
             </tr>
             <% end %>
           </tbody>
@@ -38,15 +38,15 @@
         <table class="table table-bordered">
           <tr>
             <th class="table-active">送料</th>
-            <td class="table-light">800</td>
+            <td class="table-light">¥ 800</td>
           </tr>
           <tr>
             <th class="table-active">商品合計</th>
-            <td class="table-light"><%= @array.to_s(:delimited) %></td>
+            <td class="table-light">¥ <%= @array.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th class="table-active">請求金額</th>
-            <td class="table-light"><%= (@array + 800).to_s(:delimited) %></td>
+            <td class="table-light">¥ <%= (@array + 800).to_s(:delimited) %></td>
           </tr>
         </table>
       </div>

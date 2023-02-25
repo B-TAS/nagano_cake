@@ -2,16 +2,7 @@
 <div class="conteiner">
   <div class="row mt-5 mb-5 ml-3">
     <div class="col-md-2">
-      <table class="table">
-        <tr>
-          <th class="table-dangre">ジャンル検索</th>
-        </tr>
-        <% @genre.each do |genre| %>
-        <tr>
-          <td><%= genre.name %></td>
-        </tr>
-        <% end %>
-      </table>
+      <%= render 'admin/genres/genre', genre:@genre%>
     </div>
 
     <div class="col-md-10 mb-5">
@@ -23,7 +14,7 @@
           購入には会員登録が必要になります。
         </p>
       </div>
-        <h2 class="new-item">新着商品</h2>
+        <h3 class="new-item "><i class="fas fa-heart color_red"></i> 新着商品</h3>
 
         <div class="conteiner">
           <div class="row mb-3">
@@ -32,12 +23,12 @@
                 <% @items.first(4).each do |item| %>
                   <div class="mx-4">
                     <%= image_tag item.get_image, size: "200x150" %><br>
-                    <%= link_to item.name, item_path(item.id),  class: "text-decoration-none text-success" %><br>
-                    <%= item.price %>
+                    <%= link_to item.name, item_path(item.id),  class: "text-decoration-none text-info font-weight-bold" %><br>
+                    ¥ <%= item.price.to_s(:delimited) %>
                   </div>
                 <% end %>
               </div><br>
-              <%= link_to "全ての商品を見る", items_path %>
+              <%= link_to "全ての商品を見る", items_path, class: "text-decoration-none text-info font-weight-bold" %>
             </div>
           </div>
       </div>
