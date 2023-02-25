@@ -1,7 +1,7 @@
 <div class ="container">
   <div class ="row">
     <div class ="col-sm-4 mt-5">
-      <h4>ショッピングカート</h4>
+      <h4><i class="fas fa-heart color_red"></i> ショッピングカート</h4>
     </div>
     <div class ="col-sm-8 mt-5 text-right">
       <%= link_to "カートを空にする", destroy_all_path, method: :delete, class: "btn btn-sm btn-danger"%>
@@ -34,7 +34,7 @@
                   <%= f.submit "変更", class: 'btn btn-success' %>
                   <% end %>
                 </th>
-                <th>¥<%= cart_item.subtotal.to_s(:delimited) %></th>
+                <th>¥ <%= cart_item.subtotal.to_s(:delimited) %></th>
                 <th class="text-center"><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-sm btn-danger" %></th>
               </tr>
             </tr>
@@ -55,7 +55,7 @@
             <tr>
               <th class="table-active">合計金額</th>
               <th class="table-light">
-                ¥<%= @array.to_s(:delimited) %>
+                ¥ <%= @array.to_s(:delimited) %>
               </tr>
           </table>
       </div>

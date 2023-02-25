@@ -7,14 +7,14 @@
 
     <div class="col-md-9 mb-5">
       <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
-      <h4>支払方法</h4>
+      <h4 class="mb-3"><i class="fas fa-heart color_red"></i> 支払方法</h4>
         <%= f.radio_button :order_method, Order.order_methods.key(0), checked: true %>
         <%= f.label :order_method_credit_card, Order.order_methods_i18n[:credit_card] %><br>
 
         <%= f.radio_button :order_method, Order.order_methods.key(1) %>
         <%= f.label :order_method_transfer, Order.order_methods_i18n[:transfer]%><br><br>
 
-      <h4>お届け先</h4>
+      <h4 class="my-3"><i class="fas fa-heart color_red"></i> お届け先</h4>
         <%= f.radio_button :select_address, 0, checked: true %><%= f.label :address_id, "ご自身の住所" %><br>
         <div>　　〒<%= current_customer.postcode %>　<%= current_customer.address %></div>
         <div>　　　<%= current_customer.last_name %> <%= current_customer.first_name %></div>
