@@ -1,83 +1,82 @@
 <header class="shadow-sm bg-darken-500 headercolor">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="/"><i class="fas fa-birthday-cake"></i><span class= "header-text"> NAGANOcake</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <% if customer_signed_in? %>
-        <h10 class="text-light">ようこそ、<%= current_customer.last_name %>さん！</h10>
-      <% end %>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-        <% if admin_signed_in? %>
-        <li class="nav-item">
-          <%= link_to '商品一覧', admin_items_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '注文履歴一覧', admin_root_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-right' %>
-        </li>
-        <% elsif customer_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'マイページ', my_page_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '商品一覧', items_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'カート', cart_items_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-right' %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to 'About', about_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '商品一覧', items_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-right' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-right' %>
-        </li>
-        <% end %>
-       
-        
-        <!--<div class="input-group">-->
-        <!--<input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="Search"></input>-->
-          <!--<span class="input-group-btn input-group-append">-->
-            <!--<submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>-->
-          <!--</span>-->
-      <!--</div>-->
-                
-
-      </div>
-      
+        <!--ロゴ-->
+        <div class="col-2">
+          <a class="navbar-brand" href="/"><i class="fas fa-birthday-cake"></i><span class= "header-text"> NAGANOcake</span></a>
+        </div>
+        <!--ようこそ-->
+        <div class="col-3">
+          <% if customer_signed_in? %>
+            <h10 class="text-light">ようこそ、<%= current_customer.last_name %>さん！</h10>
+          <% end %>
+        </div>
+        <!--メニューと検索窓-->
+        <div class="col-7">
+          <!--メニュー段-->
+          <div class="row">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                <% if admin_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to '商品一覧', admin_items_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '会員一覧', admin_customers_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '注文履歴一覧', admin_root_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'ジャンル一覧', admin_genres_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-right' %>
+                  </li>
+                <% elsif customer_signed_in? %>
+                  <li class="nav-item">
+                    <%= link_to 'マイページ', my_page_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '商品一覧', items_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'カート', cart_items_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-right' %>
+                  </li>
+                <% else %>
+                  <li class="nav-item">
+                    <%= link_to 'About', about_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '商品一覧', items_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-right' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-right' %>
+                  </li>
+                <% end %>
+              </div>
+          </div>
+          <!--強制的に改行-->
+          <div class="w-100"></div>
+          <div class="row">
+            <div class="col-12 clearfix">
+              <div class="float-right">
+              <form id="form" action="https://e07f2aae8b0445308bfbe402998d8926.vfs.cloud9.ap-northeast-1.amazonaws.com/" method="get">
+              <input id="box" type="text" placeholder="Search" ></input><button id="btn" type="submit"><i class="fas fa-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
   </nav>
-  <div class="container">
-   <div class="row">
-     <div class="col-md-3 offset-md-9">
-       <div style="display:inline-flex">
-        <form id="form4" action="https://e07f2aae8b0445308bfbe402998d8926.vfs.cloud9.ap-northeast-1.amazonaws.com/" method="get">
-          <input id="sbox4"  id="s" name="s" type="text" placeholder="Search" ></input><button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-        </div> 
-      </div>
-      </div>
-      </div>
-
-  
 </header>
