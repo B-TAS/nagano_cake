@@ -1,7 +1,6 @@
 class Public::OrdersController < ApplicationController
   def index
-    @orders = Order.all
-    # @catr_items = Cart_items.find(params[:id][:item_id])
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
