@@ -52,13 +52,19 @@
         <li class="nav-item">
           <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-right' %>
         </li>
-        <% end %>
-        <form id="form2" action="https://e07f2aae8b0445308bfbe402998d8926.vfs.cloud9.ap-northeast-1.amazonaws.com/" method="get">
-          <input id="sbox2"  id="s" name="s" type="text" placeholder="検索"/>
-          <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
-        </form>
-        
+        <% end %>      
       </div>
     </div>
   </nav>
+  <div class="container">
+   <div class="row">
+     <div class="col-md-3 offset-md-9">
+       <div style="display:inline-flex">
+        <form id="form4" action="https://e07f2aae8b0445308bfbe402998d8926.vfs.cloud9.ap-northeast-1.amazonaws.com/" method="get">
+          <input id="sbox4"  id="s" name="s" type="text" placeholder="Search" ></input><button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        </div> 
+      </div>
+      </div>
+      </div>
 </header>
