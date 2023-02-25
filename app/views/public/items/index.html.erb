@@ -12,7 +12,6 @@
         <% end %>
       </table>
     </div>
-
     <div class="col-9">
       <table>
         <tr>
@@ -20,14 +19,13 @@
           <td>　(全<%= Item.count %>件)</td>
         </tr>
       </table>
-
         <div class="conteiner">
           <div class="row">
-            <div class="col mb-4">
+            <div class="col">
               <div class="d-flex flex-wrap">
                 <% @items.each do |item| %>
-                <div class="m-4">
-                  <%= image_tag item.get_image, size: "200x150" %><br>
+                <div class="col-2 h-25 m-4">
+                  <%= image_tag item.get_image(120, 120) %>
                   <%= link_to item.name, item_path(item.id) %><br>
                   ￥<%= item.price %><br>
                 </div>
@@ -38,6 +36,5 @@
           </div>
         </div>
     </div>
-
   </div>
 </div>
