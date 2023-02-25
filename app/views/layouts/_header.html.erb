@@ -1,6 +1,6 @@
 <header class="shadow-sm bg-darken-500 headercolor">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-     <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
       <a class="navbar-brand" href="/"><i class="fas fa-birthday-cake"></i><span class= "header-text"> NAGANOcake</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,13 @@
           <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-right' %>
         </li>
         <% end %>
+        <form id="form2" action="https://e07f2aae8b0445308bfbe402998d8926.vfs.cloud9.ap-northeast-1.amazonaws.com/" method="get">
+          <input id="sbox2"  id="s" name="s" type="text" placeholder="検索"/>
+          <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+        </form>
+        
 
-          </div>
-        </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
+</header>
