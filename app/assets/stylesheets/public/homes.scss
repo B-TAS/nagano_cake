@@ -1,0 +1,41 @@
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.nagano_cake_1{
+  background-image: image-url("nagano_cake_1.jpg");
+  height: 400px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.nagano_cake_2 {
+  background-image: image-url("top-cake.jpg");
+  width: 75%;
+  height: 55%;
+  padding-top: 70px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.nagano_cake_text {
+  width: 400px;
+  margin: auto;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.new-item {
+  margin: 20px 0;
+}
+
+.link-text {
+  color: #db7093;
+  text-decoration: none;
+}

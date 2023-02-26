@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row my-5">
+    <div class="col-lg-4 mb-4">
+      <h4><i class="fas fa-heart color_red"></i> 配送先編集</h4>
+    </div>
+    <%= form_with model: @delivery, url: delivery_path(@delivery), method: :PATCH do |f| %>
+    <table class='table table-borderless'>
+          <tr>
+            <th width="250">郵便番号（ハイフンなし）</th>
+            <th class="form-group">
+              <%= f.text_field :postcode, placeholder: "0000000", size: 25, class: "textlines-radius" %>
+            </th>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <th class="form-group">
+              <%= f.text_field :address, placeholder: "炭水県化物市", size: 68, class: "textlines-radius" %>
+            </th>
+          </tr>
+          <tr>
+            <th>宛名</th>
+            <th class="form-group">
+              <%= f.text_field :name, placeholder: "糖質好子", size: 25, class: "textlines-radius" %>
+            </th>
+            <th><%= f.submit '変更内容を保存', class: "btn btn-info" %></th>
+          </tr>
+        </table>
+      <% end %>
+  </div>
+</div>

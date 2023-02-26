@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row m-5">
+    <h4><i class="fas fa-heart color_red"></i> 商品詳細</h4>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag @item.get_image(400,250) %>
+    </div>
+    <div class="col">
+    <table>
+      <tr>
+        <th class="p-3">商品名</th>
+        <td class="p-3"><%= @item.name %></td>
+      </tr>
+      <tr>
+        <th class="p-3">商品説明</th>
+        <td class="p-3"><%= @item.introduction %></td>
+      </tr>
+      <tr>
+        <th class="p-3">ジャンル</th>
+        <td class="p-3"><%= @item.genre.name %></td>
+      </tr>
+      <tr>
+        <th class="p-3">税込価格<br>（税抜価格）</th>
+        <td class="p-3"><%= @item.price %></td>
+      </tr>
+      <tr>
+        <th class="p-3">販売ステータス</th>
+        <td class="p-3">
+          <% if @item.is_active == true %>
+            <span class="valid-status">販売中</span>
+          <% else %>
+            <span class="deleted-status">販売停止中</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="p-3 text-center"><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-info" %><td>
+      </tr>
+  </table>
+  </div>
+  </div>
+</div>
+
+  <!--テスト用-->
+  <%#= link_to "Destroy", admin_item_path, method: :delete %>

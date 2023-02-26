@@ -1,0 +1,38 @@
+<!--<div>genre sarch</div>-->
+<div class="conteiner">
+  <div class="row mt-5 mb-5 ml-3">
+    <div class="col-md-3 ml-5">
+      <%= render 'admin/genres/genre', genre:@genre%>
+    </div>
+
+    <div class="col-md-8 mb-5">
+      <div class="nagano_cake_2 ">
+        <p class="nagano_cake_text">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできませんが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+      <h3 class="new-item "><i class="fas fa-heart color_red"></i> 新着商品</h3>
+      <div class="conteiner">
+        <div class="row mb-3">
+          <div class="col-11">
+            <div class="d-flex">
+              <% @items.first(4).each do |item| %>
+                <div class="col-3">
+                  <%= image_tag item.get_image(100,100) %><br>
+                  <%= link_to item.name, item_path(item.id),  class: "text-decoration-none text-info font-weight-bold" %><br>
+                  ¥ <%= item.price.to_s(:delimited) %>
+                </div>
+              <% end %>
+            </div><br>
+            <div class="text-right">
+            <%= link_to "全ての商品を見る", items_path, class: "text-decoration-none text-info font-weight-bold" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

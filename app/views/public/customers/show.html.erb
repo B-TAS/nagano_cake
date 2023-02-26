@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h4 class="py-4 mb-3"><i class="fas fa-heart color_red"></i> マイページ</h4>
+    <div class="row mb-3">
+      <strong><i class="fas fa-heart color_red"></i> 登録情報　</strong>
+      <%= link_to "編集する", my_page_edit_path, class: 'btn btn-success' %>
+    </div>
+    <%= form_with model: @customer, url: customer_path(@customer), method: :GET do |f| %>
+      <table border="1" style="border-collapse: collapse" class="table-sm" width="600">
+        <tr>
+          <th class="table-active">　氏名</th>
+          <td class="table-light">　<%= @customer.last_name %><%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="table-active">　カナ</th>
+          <td class="table-light">　<%= @customer.kana_last_name %><%= @customer.kana_first_name %></td>
+        </tr>
+        <tr>
+          <th class="table-active">　郵便番号</th>
+          <td class="table-light">　<%= @customer.postcode %></td>
+        </tr>
+        <tr>
+          <th class="table-active">　住所</th>
+          <td class="table-light">　<%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th class="table-active">　電話番号</th>
+          <td class="table-light">　<%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th class="table-active">　メールアドレス</th>
+          <td class="table-light">　<%= @customer.email %></td>
+        </tr>
+      </table>
+    <% end %>
+
+    <div class="mt-4 mb-2">
+      <strong><i class="fas fa-heart color_red"></i> 配送先　　</strong>
+      <%= link_to "一覧を見る", deliveries_path, class: 'glyphicon glyphicon-home btn btn-info' %>
+    </div>
+    <div class="mt-2 mb-4">
+      <strong><i class="fas fa-heart color_red"></i> 注文履歴　</strong>
+      <%= link_to "一覧を見る", orders_path, class: 'glyphicon glyphicon-home btn btn-info' %>
+    </div>
+</div>

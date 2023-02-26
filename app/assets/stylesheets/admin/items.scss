@@ -1,0 +1,25 @@
+// Place all the styles related to the admin/items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.valid-status {
+  color: green;
+}
+
+.deleted-status {
+  color: gray;
+}
+
+.valid-status {
+  color: #32cd32;
+  font-weight: bold;
+}
+
+.deleted-status {
+  color: #808080;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: "Meiryo UI","Hiragino Maru Gothic ProN W4","Segoe Print",sans-serif;
+}

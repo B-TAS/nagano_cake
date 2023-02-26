@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">ログイン</h5>
+      <div class="form-body p-4">
+
+        <div class="mx-auto text-center">
+          <p>会員の方はこちらからログイン</p>
+        </div>
+
+      <%= form_with model: @customer, url: customer_session_path, id: 'new_customer',class: 'new_customer', local: true do |f| %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         <span class="input-group-text" aria-hidden="true"><i class="far fa-envelope"></i></span>
+        </div>
+      <%= f.email_field :email, autofocus: true, placeholder: "toushitsu@example.com", autocomplete: "email", class: "textlines-radius form-control" %>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fas fa-lock"></i></span>
+      </div>
+          <%= f.password_field :password, autocomplete: "current-password", class: "textlines-radius form-control" %>
+        </div>
+  <%# if devise_mapping.rememberable? %>
+    <!--<div class="field">-->
+      <%#= f.check_box :remember_me %>
+      <%#= f.label :remember_me %>
+    <!--</div>-->
+  <%# end %>
+        <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-info mt-8" %>
+        <% end %>
+        <%= render "public/shared/links" %>
+    </div>
+  </div>
+</div>
+</div>

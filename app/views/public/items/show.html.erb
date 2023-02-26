@@ -1,0 +1,47 @@
+<div class="conteiner">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-2 ml-3">
+      <%= render 'admin/genres/genre', genre:@genre%>
+    </div>
+
+    <div class="col-md-5 ml-4">
+      <%= image_tag @item.get_image(450,350) %>
+    </div>
+
+    <div class="col-md-4">
+      <table>
+        <tr>
+          <td><h2 class="font-weight-bold"><i class="fas fa-heart color_red"></i> <%= @item.name %></h2></td>
+        </tr>
+        <tr>
+          <td><br><h4><%= @item.introduction %></h4><br></td>
+        </tr>
+        <tr>
+          <td><span class="text-big">¥ <%= @item.price.to_s(:delimited) %></span><span class="text-small">（税込）</span><br><br></td>
+        </tr>
+        <tr>
+          <td>
+          <%# if customer_signed_in? && @item.is_active == 0 %>
+            <%= form_with model: @cart_item do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.select :amount, *[1..10] %>
+
+              <%= f.submit "カートに入れる", class: 'btn btn-info' %></div>
+            <% end %>
+          <%# elsif @item.is_active == 1 %>
+            <!--<strong>この商品は購入できません。</strong>-->
+          <%# end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+
+
+  <!--テスト用-->
+  <%#= link_to "Destroy", admin_item_path, method: :delete %>
